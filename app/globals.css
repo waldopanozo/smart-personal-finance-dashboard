@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-0: #020617;
+  --bg-1: #0f172a;
+  --accent: #38bdf8;
+  --accent-dim: rgba(56, 189, 248, 0.15);
+}
+
+body {
+  @apply min-h-screen text-slate-100 antialiased;
+  background: radial-gradient(ellipse 120% 80% at 50% -20%, #1e293b 0%, var(--bg-0) 45%),
+    linear-gradient(180deg, var(--bg-1) 0%, var(--bg-0) 100%);
+  background-attachment: fixed;
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply rounded-2xl border border-white/10 bg-surface/80 shadow-glass backdrop-blur-glass;
+  }
+}

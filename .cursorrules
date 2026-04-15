@@ -1,0 +1,23 @@
+# Smart Personal Finance Dashboard
+
+## Objetivo del taller
+- Proyecto **Vibe Coding / AI-Driven UI**: delegar en Cursor Composer la mayor parte del UI (meta: &lt;10% código manual).
+- **Benchmark visual**: usar @Web para inspiración en dashboards financieros 2024/2025.
+- Estética: **glassmorphism** (vidrio), **tema oscuro** profesional.
+
+## Stack fijo
+- **Next.js** (App Router) + **TypeScript** + **Tailwind CSS**
+- **Vercel** para despliegue
+- **lucide-react** para iconos
+- **Chart.js** + **react-chartjs-2** para gráficos
+
+## Datos
+- Gastos en **localStorage** (sin backend obligatorio para la demo). IDs con `crypto.randomUUID` cuando exista.
+
+## Convenciones
+- Componentes cliente donde haya estado (`'use client'`).
+- Textos de UI en **español**.
+- Mantener accesibilidad básica: `aria-label` en botones de icono, contraste legible sobre fondo oscuro.
+
+## Entrega
+- Enlace al **repositorio GitHub** y **URL de producción en Vercel** (README con instrucciones).
