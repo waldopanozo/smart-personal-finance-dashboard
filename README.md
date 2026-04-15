@@ -23,10 +23,11 @@ Aplicación web para **registrar gastos**, ver **distribución por categoría** 
 4. [Instalación y desarrollo local](#instalación-y-desarrollo-local)
 5. [Build de producción local](#build-de-producción-local)
 6. [Despliegue en Vercel](#despliegue-en-vercel)
-7. [Entrega del taller (checklist)](#entrega-del-taller-checklist)
-8. [Roadmap del brief](#roadmap-del-brief)
-9. [Estructura del repositorio](#estructura-del-repositorio)
-10. [Licencia](#licencia)
+7. [Error: Output Directory `public`](#error-output-directory-public-en-vercel)
+8. [Entrega del taller (checklist)](#entrega-del-taller-checklist)
+9. [Roadmap del brief](#roadmap-del-brief)
+10. [Estructura del repositorio](#estructura-del-repositorio)
+11. [Licencia](#licencia)
 
 ---
 
@@ -102,6 +103,25 @@ Pasos típicos (por si replicás el flujo o conectás otro repo):
 
 Cada push a la rama conectada puede disparar un **nuevo despliegue** según la configuración del proyecto en Vercel.
 
+En la raíz del repo hay un **`vercel.json`** con `"framework": "nextjs"` para que Vercel trate el proyecto como **Next.js** (salida en `.next/`, no en `public/`).
+
+---
+
+### Error: Output Directory `public` en Vercel
+
+Si ves: *No Output Directory named "public" found after the Build completed*:
+
+1. **Next.js no usa `public` como carpeta de salida del build.** Esa carpeta es solo para archivos estáticos (imágenes, etc.). El build genera **`.next/`** y Vercel lo entiende solo si el preset es Next.js.
+2. En [Vercel](https://vercel.com) → tu proyecto → **Settings** → **General** → **Build & Development Settings**:
+   - **Framework Preset:** **Next.js**
+   - **Output Directory:** dejalo **vacío** o en **Default** (no pongas `public`, ni `out`, ni `.next` a mano salvo que sepas lo que hacés).
+   - **Build Command:** `npm run build` (o vacío para autodetección).
+   - **Install Command:** `npm install` (o vacío).
+3. Si el repo está dentro de un **monorepo**, configurá **Root Directory** apuntando a la carpeta donde está este `package.json`.
+4. Guardá, volvé a desplegar (**Redeploy**).
+
+No hace falta definir `outputDirectory` en `vercel.json` para esta app (no usamos `next export`).
+
 ---
 
 ## Entrega del taller (checklist)
@@ -146,11 +166,14 @@ smart-personal-finance-dashboard/
 │   ├── insights.ts
 │   ├── types.ts
 │   └── useLocalExpenses.ts
+├── public/
+│   └── .gitkeep
 ├── next.config.mjs
 ├── package.json
 ├── postcss.config.mjs
 ├── tailwind.config.ts
-└── tsconfig.json
+├── tsconfig.json
+└── vercel.json
 ```
 
 ---
