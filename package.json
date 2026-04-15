@@ -2,6 +2,14 @@
   "name": "smart-personal-finance-dashboard",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://smart-personal-finance-dashboard-rho.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/waldopanozo/smart-personal-finance-dashboard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/waldopanozo/smart-personal-finance-dashboard/issues"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",

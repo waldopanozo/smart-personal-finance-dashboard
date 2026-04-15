@@ -40,7 +40,7 @@ function aggregate(expenses: Expense[]) {
 
 export function ExpenseChart({ expenses }: { expenses: Expense[] }) {
   const agg = aggregate(expenses);
-  const labels = [...agg.keys()].filter((k) => (agg.get(k) ?? 0) > 0);
+  const labels = Array.from(agg.keys()).filter((k) => (agg.get(k) ?? 0) > 0);
   const dataVals = labels.map((k) => agg.get(k) ?? 0);
   const bg = labels.map((k) => COLORS[k]);
 

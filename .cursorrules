@@ -20,4 +20,6 @@
 - Mantener accesibilidad básica: `aria-label` en botones de icono, contraste legible sobre fondo oscuro.
 
 ## Entrega
-- Enlace al **repositorio GitHub** y **URL de producción en Vercel** (README con instrucciones).
+- **Producción (Vercel):** https://smart-personal-finance-dashboard-rho.vercel.app/
+- **Repositorio:** https://github.com/waldopanozo/smart-personal-finance-dashboard  
+  (detalle en `README.md`.)
